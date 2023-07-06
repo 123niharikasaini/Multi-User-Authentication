@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register YourSelf</h1>
+    {% if msg %}
+    {{msg | safe}}
+    {% else %}
+    Login page
+    {% endif %}
+    <form action={% url 'register' %} method="post">
+        {% csrf_token %}
+
+        <label for="username">Username</label>
+        {{form.username}}
+        <label for="password1">Password</label>
+        {{form.password1}}
+        <label for="password2">Confirm Password</label>
+        {{form.password2}}
+        <label for="email">Email</label>
+        {{form.email}}
+        <label for="admin">admin</label>
+        {{form.is_admin}}
+        <label for="customer">customer</label>
+        {{form.is_customer}}
+        <label for="Driver">Driver</label>
+        {{form.is_driver}}
+        <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>
